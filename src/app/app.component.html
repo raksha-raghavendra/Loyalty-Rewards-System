@@ -1,0 +1,27 @@
+<nav>
+  <a routerLink="/signup">Signup</a>
+  <a routerLink="/login">Login</a>
+</nav>
+<router-outlet></router-outlet>
+
+<!-- Signup Form -->
+<div>
+  <h2>Signup</h2>
+  <form (ngSubmit)="onSubmitSignup()">
+    <input type="text" [(ngModel)]="signupData.name" name="name" required placeholder="Name" />
+    <input type="text" [(ngModel)]="signupData.contactNumber" name="contactNumber" required placeholder="Contact Number" />
+    <input type="email" [(ngModel)]="signupData.email" name="email" required placeholder="Email" />
+    <input type="password" [(ngModel)]="signupData.password" name="password" required placeholder="Password" />
+    <button type="submit">Signup</button>
+  </form>
+</div>
+
+<!-- Login Form -->
+<div>
+  <h2>Login</h2>
+  <form (ngSubmit)="onSubmitLogin()">
+    <input type="email" [(ngModel)]="loginData.email" name="email" required placeholder="Email" />
+    <input type="password" [(ngModel)]="loginData.password" name="password" required placeholder="Password" />
+    <button type="submit">Login</button>
+  </form>
+</div>
