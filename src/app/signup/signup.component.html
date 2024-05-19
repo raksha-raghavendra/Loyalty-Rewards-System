@@ -1,19 +1,29 @@
-<form (ngSubmit)="onSubmit()">
-  <div>
-    <label for="name">Name:</label>
-    <input type="text" id="name" [(ngModel)]="signupData.name" name="name" required />
-  </div>
-  <div>
-    <label for="contactNumber">Contact Number:</label>
-    <input type="text" id="contactNumber" [(ngModel)]="signupData.contactNumber" name="contactNumber" required />
-  </div>
-  <div>
-    <label for="email">Email:</label>
-    <input type="email" id="email" [(ngModel)]="signupData.email" name="email" required />
-  </div>
-  <div>
-    <label for="password">Password:</label>
-    <input type="password" id="password" [(ngModel)]="signupData.password" name="password" required />
-  </div>
-  <button type="submit">Sign Up</button>
-</form>
+<div class="signup-container">
+  <mat-card>
+    <mat-card-title>Signup</mat-card-title>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" required />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Contact Number</mat-label>
+        <input matInput formControlName="contactNumber" required />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" required />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" required />
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" [disabled]="loading">
+        Signup
+      </button>
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+    </form>
+  </mat-card>
+</div>
