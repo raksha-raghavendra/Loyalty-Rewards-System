@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-LoyaltyprogramApplication<loyaltyprogram>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.loyalyprogram.loyaltyprogram.LoyaltyprogramApplication",
+            "projectName": "loyaltyprogram",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

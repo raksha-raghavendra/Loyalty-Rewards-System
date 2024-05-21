@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.loyalyprogram.loyaltyprogram.initializer.LoginResponse;
+
 @RequestMapping(path = "/user")
 public interface UserRest {
 
@@ -14,5 +16,5 @@ public interface UserRest {
     public ResponseEntity<String> signUp(@RequestBody(required = true) Map<String, String> requestMap);
 
     @PostMapping(path = "/login")
-    ResponseEntity<String> login(@RequestBody Map<String, String> requestMap);
+    ResponseEntity<LoginResponse> login(@RequestBody Map<String, String> requestMap);
 }

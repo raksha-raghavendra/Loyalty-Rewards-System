@@ -16,3 +16,12 @@ button {
   color: #fff;
   width: 100%;
 }
+
+.login-link {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.login-link a {
+  margin-left: 5px;
+}

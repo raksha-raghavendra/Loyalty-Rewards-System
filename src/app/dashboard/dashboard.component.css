@@ -1,0 +1,12 @@
+mat-card {
+    width: 300px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    display: flex;
+    justify-content: top;
+    align-items: center;
+    height: calc(100vh - 100px);
+}

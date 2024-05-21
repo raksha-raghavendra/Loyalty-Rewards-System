@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { LoginComponent } from './login.component';
+import { LoginComponent } from '../login/login.component';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;

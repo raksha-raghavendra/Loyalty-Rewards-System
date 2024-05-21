@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onSubmit(): void {
     if (this.loginForm.valid) {
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
         response => {
           this.loading = false;
           this.snackBar.open('Login successful!', 'Close', { duration: 2000 });
-          this.router.navigate(['/dashboard']);
+          this.router.navigateByUrl('dashboard')
         },
         error => {
           this.loading = false;

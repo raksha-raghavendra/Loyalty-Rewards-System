@@ -16,3 +16,12 @@ button {
   color: #fff;
   width: 100%;
 }
+
+.register-link {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.register-link a {
+  margin-left: 5px;
+}

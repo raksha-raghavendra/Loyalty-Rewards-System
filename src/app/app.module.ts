@@ -13,12 +13,25 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { RewardsComponent } from './rewards/rewards.component';
+import { RewardService } from './services/reward.service';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PurchaseComponent } from './purchase/purchase.component';
+import { ReportComponent } from './report/report.component';
+import { MatListModule } from '@angular/material/list';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    RewardsComponent,
+    DashboardComponent,
+    PageNotFoundComponent,
+    PurchaseComponent,
+    ReportComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,12 +41,15 @@ import { SignupComponent } from './signup/signup.component';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatListModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    AppRoutingModule // Add the routing module to imports
   ],
-  providers: [],
+  providers: [RewardService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
