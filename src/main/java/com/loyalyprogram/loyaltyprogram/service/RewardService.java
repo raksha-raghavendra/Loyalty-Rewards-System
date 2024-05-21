@@ -1,10 +1,10 @@
 package com.loyalyprogram.loyaltyprogram.service;
 
-import java.util.Map;
+import java.util.List;
+import com.loyalyprogram.loyaltyprogram.POJO.Reward;
 
-import org.springframework.http.ResponseEntity;
 
 public interface RewardService {
-
-    ResponseEntity<String> displayRewards(Map<String, String> requestMap);
+    public List<Reward> getAllRewards();
+    public void saveAllRewards(List<Reward> rewards);
 }
