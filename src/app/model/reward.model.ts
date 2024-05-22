@@ -3,5 +3,5 @@ export interface Reward {
     category: string;
     name: string;
     description: string;
-    points: number;
+    pointValue: number;
   }

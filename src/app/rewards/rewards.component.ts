@@ -24,8 +24,4 @@ export class RewardsComponent implements OnInit {
       }
     );
   }
-  getRamdomNumber(): number {
-    return Math.floor(Math.random() * (3000 - 50 + 1)) + 50;
-  }
-
 }

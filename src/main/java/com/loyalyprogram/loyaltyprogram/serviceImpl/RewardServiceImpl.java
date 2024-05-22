@@ -18,8 +18,8 @@ public class RewardServiceImpl implements RewardService {
         return rewardRepository.findAll();
     }
 
-    public void saveAllRewards(List<Reward> rewards) {
-        rewardRepository.saveAll(rewards);
-    }
+    // public void saveAllRewards(List<Reward> rewards) {
+    //     rewardRepository.saveAll(rewards);
+    // }
 }
 
