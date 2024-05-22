@@ -36,6 +36,6 @@ public class RewardInitializer implements CommandLineRunner {
         rewards.add(new Reward("Items to Purchase", "Customizable Notebook Set", "A set of three customizable notebooks, perfect for journaling, sketching, and notes.", 1000));
         rewards.add(new Reward("Items to Purchase", "Eco-Friendly Water Bottle", "Stay hydrated with this durable, eco-friendly water bottle made from sustainable materials.", 800));
 
-        rewardService.saveAllRewards(rewards);
+        //rewardService.saveAllRewards(rewards);
     }
 }

@@ -6,5 +6,5 @@ import com.loyalyprogram.loyaltyprogram.POJO.Reward;
 
 public interface RewardService {
     public List<Reward> getAllRewards();
-    public void saveAllRewards(List<Reward> rewards);
+    //public void saveAllRewards(List<Reward> rewards);
 }
