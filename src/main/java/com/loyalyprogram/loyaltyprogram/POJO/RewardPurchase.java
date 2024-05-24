@@ -25,16 +25,32 @@ public class RewardPurchase {
     @JoinColumn(name = "user_id") //tells JPA to create a column "user_id" in the Purchase table
     private User user;
 
-    @Column(name = "pointsEarned")
+    @ManyToOne
+    @JoinColumn(name = "reward_id") //tells JPA to create a column "reward_id" in the Purchase table
+    private Reward reward; // Assuming Reward is another entity
+
+    @Column(name = "points_earned")
     private int pointsEarned;
 
-    public void setReward(RewardPurchase reward) {
-        this.setReward(reward);
+    // Add necessary methods if not using Lombok or need custom logic
+    public Reward getReward() {
+        return reward;
+    }
+
+    public void setReward(Reward reward) {
+        this.reward = reward;
+    }
+
+    public int getPointsEarned() {
+        return pointsEarned;
+    }
+
+    public void setPointsEarned(int pointsEarned) {
+        this.pointsEarned = pointsEarned;
     }
 
     public int getPointValue() {
-        return this.getPointsEarned();
-        
+        return this.pointsEarned;
     }
 
 }

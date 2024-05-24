@@ -11,8 +11,12 @@ mat-card {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+mat-card-title{
+  text-align: center;
+}
+
 button {
-  background-color: #2E4A45 !important;
+  background-color: #af4c4c !important;
   color: #fff;
   width: 100%;
 }
@@ -24,4 +28,8 @@ button {
 
 .register-link a {
   margin-left: 5px;
+}
+
+button.mat-raised-button:hover {
+  background-color: #7d0e0e !important;
 }

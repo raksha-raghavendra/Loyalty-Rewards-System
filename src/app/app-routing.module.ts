@@ -20,7 +20,6 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' }, //when path is empty, redirect to login
   { path: '', redirectTo: 'reward', pathMatch: 'full' }, // Redirect to dashboard by default
   { path: '**', component: PageNotFoundComponent}, //always keep this at last, becoz it's serially mapped
-  //{ path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
 ];
 
 @NgModule({

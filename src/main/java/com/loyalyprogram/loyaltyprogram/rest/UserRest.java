@@ -1,6 +1,7 @@
 package com.loyalyprogram.loyaltyprogram.rest;
 
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +22,7 @@ public interface UserRest {
     @PostMapping(path = "/login")
     ResponseEntity<LoginResponse> login(@RequestBody Map<String, String> requestMap);
 
-    @GetMapping(path = "/login/{id}")
-    ResponseEntity<User> getUserById(@PathVariable int id);
+    @GetMapping(path = "/{id}")
+    ResponseEntity<Optional<User>> getUserById(@PathVariable int id);
 
 }
