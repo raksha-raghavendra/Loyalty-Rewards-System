@@ -3,6 +3,7 @@ package com.loyalyprogram.loyaltyprogram.serviceImpl;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,30 +24,28 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     UserDao userDao;
+
     @Override
     public ResponseEntity<String> signUp(Map<String, String> requestMap) {
         log.info("Inside signup {}", requestMap);
         try {
-            if (validateSignUpMap(requestMap) ){
+            if (validateSignUpMap(requestMap)) {
                 User user = userDao.findByEmailId(requestMap.get("email"));
                 if (Objects.isNull(user)) {
                     userDao.save(getUserFromMap(requestMap));
                     return LoyaltyUtils.getResponseEntity("User uccessfully Registered", HttpStatus.OK);
-                }
-                else {
+                } else {
                     return LoyaltyUtils.getResponseEntity("Email Already Exist", HttpStatus.BAD_REQUEST);
                 }
-            }
-            else {
+            } else {
                 return LoyaltyUtils.getResponseEntity(LoyaltyConstants.INVALID_DATA, HttpStatus.BAD_REQUEST);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
         return LoyaltyUtils.getResponseEntity(LoyaltyConstants.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
     }
-
 
     @Override
     public ResponseEntity<String> login(Map<String, String> requestMap) {
@@ -56,10 +55,10 @@ public class UserServiceImpl implements UserService {
                 User user = userDao.findByEmailId(requestMap.get("email"));
                 if (!Objects.isNull(user) && user.getPassword().equals(requestMap.get("password"))) {
                     Map<String, Object> response = new HashMap<>();
-                response.put("message", "Login successful");
-                response.put("userId", user.getId()); // Assuming `getId()` returns the user ID
-                return new ResponseEntity<>(user.getId().toString(), HttpStatus.OK);
-                    //return LoyaltyUtils.getResponseEntity("Login successful", HttpStatus.OK);
+                    response.put("message", "Login successful");
+                    response.put("userId", user.getId()); // Assuming `getId()` returns the user ID
+                    return new ResponseEntity<>(user.getId().toString(), HttpStatus.OK);
+                    // return LoyaltyUtils.getResponseEntity("Login successful", HttpStatus.OK);
                 } else {
                     return LoyaltyUtils.getResponseEntity("Invalid email or password", HttpStatus.UNAUTHORIZED);
                 }
@@ -68,20 +67,21 @@ public class UserServiceImpl implements UserService {
             }
         } catch (Exception e) {
             log.error("Error in login: ", e);
-            return LoyaltyUtils.getResponseEntity(LoyaltyConstants.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
+            return LoyaltyUtils.getResponseEntity(LoyaltyConstants.SOMETHING_WENT_WRONG,
+                    HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     private boolean validateSignUpMap(Map<String, String> requestMap) {
 
-       if (requestMap.containsKey("name") && requestMap.containsKey("contactNumber")
-        && requestMap.containsKey("email") && requestMap.containsKey("password") ) {
+        if (requestMap.containsKey("name") && requestMap.containsKey("contactNumber")
+                && requestMap.containsKey("email") && requestMap.containsKey("password")) {
             return true;
         }
         return false;
     }
 
-    private User getUserFromMap(Map<String, String> requestMap)  {
+    private User getUserFromMap(Map<String, String> requestMap) {
         User user = new User();
         user.setName(requestMap.get("name"));
         user.setContactNumber(requestMap.get("contactNumber"));
@@ -91,21 +91,26 @@ public class UserServiceImpl implements UserService {
         return user;
     }
 
-
     @Override
     public User getUserByEmail(String email) {
         return userDao.findByEmailId(email);
     }
 
-
     @Override
     public void updateUserPoints(int userId, int points) {
-        User user = userDao.findById(userId);
-        if (user.getCurrentPoints() >= points) {
-            user.setCurrentPoints(user.getCurrentPoints() - points); //decrement the points if user purchases any item
+        Optional<User> userOptional = userDao.findById(userId);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            if (user.getCurrentPoints() >= points) {
+                user.setCurrentPoints(user.getCurrentPoints() - points); // decrement the points if the user purchases
+                                                                         // any item
+                userDao.save(user);
+            } else {
+                throw new RuntimeException("Not enough points to complete the transaction");
+            }
+        } else {
+            throw new RuntimeException("User not found");
         }
-        
-        userDao.save(user);
     }
 
 }

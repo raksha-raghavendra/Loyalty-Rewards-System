@@ -2,6 +2,7 @@ package com.loyalyprogram.loyaltyprogram.restImpl;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -79,8 +80,8 @@ public class UserRestImpl implements UserRest{
         return new ResponseEntity<>(new LoginResponse(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    public ResponseEntity<User> getUserById(@PathVariable int id) {
-        User user = userDao.findById(id);
+    public ResponseEntity<Optional<User>> getUserById(@PathVariable int id) {
+        Optional<User> user = userDao.findById(id);
         if (user != null) {
             return ResponseEntity.ok(user);
         }

@@ -1,5 +1,7 @@
 package com.loyalyprogram.loyaltyprogram.dao;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.loyalyprogram.loyaltyprogram.POJO.RewardPurchase;
@@ -7,6 +9,6 @@ import com.loyalyprogram.loyaltyprogram.POJO.RewardPurchase;
 
 public interface RewardPurchaseDao extends JpaRepository<RewardPurchase, Integer>{
 
-    RewardPurchase findById(int id);
+    Optional<RewardPurchase> findById(int id);
 
 }

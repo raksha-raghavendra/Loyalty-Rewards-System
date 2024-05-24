@@ -1,12 +1,13 @@
 package com.loyalyprogram.loyaltyprogram.restImpl;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.loyalyprogram.loyaltyprogram.initializer.RewardPurchaseRequest;
 import com.loyalyprogram.loyaltyprogram.rest.RewardPurchaseRest;
 import com.loyalyprogram.loyaltyprogram.service.RewardPurchaseService;
 
@@ -18,13 +19,15 @@ public class RewardPurchaseRestImpl implements RewardPurchaseRest{
     private RewardPurchaseService rewardPurchaseService;
 
     @Override
-    public ResponseEntity<?> purchaseReward(@RequestBody RewardPurchaseRequest request) {
+    public ResponseEntity<?> purchaseReward(@RequestBody Map<String, Integer> payload) {
+        int rewardId = payload.get("rewardId");
+        int userId = payload.get("userId");
+        
         try {
-            rewardPurchaseService.createPurchase(request.getRewardId(), request.getUserId());
-            return ResponseEntity.ok("{\"message\": \"Purchase successful\"}");
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("{\"error\": \"" + e.getMessage() + "\"}");
+            rewardPurchaseService.createPurchase(rewardId, userId);
+            return ResponseEntity.ok().build();
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
     

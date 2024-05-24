@@ -1,61 +1,29 @@
 :host {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100%;
-  background: linear-gradient(to bottom, #008080, #E0E0E0);
+  display: block;
+  height: 100%;
 }
 
 .header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  background-color: #2E4A45;
-  width: 100%;
-  padding: 20px 0;
-  position: relative;
-}
-
-/*
-.header-container {
-  width: 100%;
-  background-color: #2E4A45; 
-  padding: 20px 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
-*/
-
-
-.header-content {
-  width: 100%; /* Or any other width that fits your design */
-  max-width: 1200px; /* To center the content if needed */
-  display: flex;
   justify-content: space-between;
-  align-items: center;
+  background-color: #000000;
+  width: 100%;
+  padding: 20px 20px;
+  position: relative;
 }
 
-.header-title {
-  font-size: 24px; /* Adjust font size as needed */
-  color: white;
-  margin-left: 20px;
+.title {
+  color: #ffffff; /* White text color */
+  font-size: 40px; /* Adjust font size as needed */
+  font-weight: bold;
+  text-align: center; /* Center text horizontally */
+  flex-grow: 1; /* Take up the remaining space */
 }
 
 .logo {
   height: 100px;
-  margin-right: 20px;
-}
-
-.title {
-  color: #fff;
-  font-size: 35px;
-  font-weight: bold;
+  margin-right: 50px;
 }
 
 router-outlet {

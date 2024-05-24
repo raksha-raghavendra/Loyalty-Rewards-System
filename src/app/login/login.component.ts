@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
           this.loading = false;
           this.snackBar.open('Login successful!', 'Close', { duration: 2000 });
           console.log(response);
-          this.userService.setCurrentUser(response.message); // Store user ID in local storage
+          this.userService.setCurrentUser(response.message); //response.message contains user_id
           this.router.navigateByUrl('dashboard');
         },
         error => {

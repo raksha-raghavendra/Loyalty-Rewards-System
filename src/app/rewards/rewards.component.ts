@@ -39,35 +39,24 @@ export class RewardsComponent implements OnInit {
   }
 
   purchaseReward(reward: Reward): void {
-    this.id = this.route.snapshot.params['id'];
-    
-    this.user = new User();
-    this.userService.getUserById(this.id).subscribe(data => {
-      this.user = data;
-      console.log(data);
-    });
-  }
-}
 
-
-/**
- * const userId = this.userService.getCurrentUserId();
+    const userId = localStorage.getItem('userId');
     if (userId) {
-      const rewardPurchase: RewardPurchase = {
-        rewardId: reward.id,
-        userId: userId,
-        // Add other necessary fields if required
-      };
-      
-      this.rewardService.createPurchase(rewardPurchase).subscribe(
-        (response) => {
-          console.log('Purchase successful:', response);
+      this.rewardService.createPurchase(reward.id, parseInt(userId)).subscribe(
+        (data) => {
+          console.log(userId);
+          console.log('Purchase successful', data);
+          alert('Reward purchased successfully!');
+          // Optionally, you might want to refresh the user points or reward list
         },
         (error) => {
-          console.error('Error making purchase', error);
+          //console.error('Error purchasing reward', error);
+          alert('Failed to purchase reward as User doesnot have enough Points!');
         }
       );
     } else {
-      console.error('User ID not found');
+      console.error('User ID not found in localStorage');
+      alert('User ID not found. Please log in again.');
     }
- */
+  }
+}

@@ -11,10 +11,8 @@ mat-card {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-button {
-  background-color: #2E4A45 !important;
-  color: #fff;
-  width: 100%;
+mat-card-title{
+  text-align: center;
 }
 
 .login-link {
@@ -24,4 +22,14 @@ button {
 
 .login-link a {
   margin-left: 5px;
+}
+
+button {
+  background-color: #af4c4c !important;
+  color: #fff;
+  width: 100%;
+}
+
+button.mat-raised-button:hover {
+  background-color: #7d0e0e !important;
 }

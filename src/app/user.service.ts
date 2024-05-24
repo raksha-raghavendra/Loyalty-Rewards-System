@@ -22,6 +22,10 @@ export class UserService {
   getUserById(id: number): Observable<User>{
     return this.http.get<User>(`${this.apiUrl}/${id}`);
   }
+  
+  getUserDetails(userId: number): Observable<User> {
+    return this.http.get<User>(`${this.apiUrl}/user/${userId}`); 
+  }
 
   setCurrentUser(userId: number): void {
     if (userId !== undefined && userId !== null) {

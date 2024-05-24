@@ -16,9 +16,13 @@ export class RewardService {
   getRewards(): Observable<Reward[]> {
     return this.http.get<Reward[]>(this.apiUrl);
   }
-  createPurchase(rewardPurchase: RewardPurchase): Observable<any> {
-    return this.http.post<any>(this.purchaseUrl, rewardPurchase);
-  }
+  // createPurchase(): Observable<any> {
+  //   return this.http.post<any>(this.purchaseUrl, rewardPurchase);
+  // }
 
+  createPurchase(rewardId: number, userId: number): Observable<any> {
+    const payload = { rewardId, userId };
+    return this.http.post<any>(this.purchaseUrl, payload);
+  }
 
 }
