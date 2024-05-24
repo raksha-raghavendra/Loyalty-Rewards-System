@@ -6,4 +6,5 @@ import com.loyalyprogram.loyaltyprogram.POJO.Reward;
 
 public interface RewardsDao extends JpaRepository<Reward, Integer>{
 
+    
 }

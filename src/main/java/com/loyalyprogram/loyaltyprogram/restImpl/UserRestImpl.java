@@ -6,16 +6,20 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.loyalyprogram.loyaltyprogram.POJO.Reward;
+import com.loyalyprogram.loyaltyprogram.POJO.User;
 import com.loyalyprogram.loyaltyprogram.constants.LoyaltyConstants;
+import com.loyalyprogram.loyaltyprogram.dao.UserDao;
 import com.loyalyprogram.loyaltyprogram.initializer.LoginResponse;
 import com.loyalyprogram.loyaltyprogram.rest.UserRest;
 import com.loyalyprogram.loyaltyprogram.service.RewardService;
 import com.loyalyprogram.loyaltyprogram.service.UserService;
 import com.loyalyprogram.loyaltyprogram.utils.LoyaltyUtils;
+
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -29,6 +33,9 @@ public class UserRestImpl implements UserRest{
 
     @Autowired
     private RewardService rewardService;
+
+    @Autowired
+    private UserDao userDao;
     
     @Override
     public ResponseEntity<String> signUp(Map<String, String> requestMap) {
@@ -70,5 +77,16 @@ public class UserRestImpl implements UserRest{
             e.printStackTrace();
         }
         return new ResponseEntity<>(new LoginResponse(), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    public ResponseEntity<User> getUserById(@PathVariable int id) {
+        User user = userDao.findById(id);
+        if (user != null) {
+            return ResponseEntity.ok(user);
+        }
+        else {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
     }
 }

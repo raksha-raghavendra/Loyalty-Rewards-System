@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +17,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private AuthService: AuthService,
+    private userService: UserService,
     private snackBar: MatSnackBar,
     private router: Router
   ) {
@@ -35,7 +37,9 @@ export class LoginComponent implements OnInit {
         response => {
           this.loading = false;
           this.snackBar.open('Login successful!', 'Close', { duration: 2000 });
-          this.router.navigateByUrl('dashboard')
+          console.log(response);
+          this.userService.setCurrentUser(response.message); // Store user ID in local storage
+          this.router.navigateByUrl('dashboard');
         },
         error => {
           this.loading = false;

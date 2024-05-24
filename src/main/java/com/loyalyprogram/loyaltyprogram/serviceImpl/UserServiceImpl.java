@@ -1,5 +1,6 @@
 package com.loyalyprogram.loyaltyprogram.serviceImpl;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
@@ -54,7 +55,11 @@ public class UserServiceImpl implements UserService {
             if (requestMap.containsKey("email") && requestMap.containsKey("password")) {
                 User user = userDao.findByEmailId(requestMap.get("email"));
                 if (!Objects.isNull(user) && user.getPassword().equals(requestMap.get("password"))) {
-                    return LoyaltyUtils.getResponseEntity("Login successful", HttpStatus.OK);
+                    Map<String, Object> response = new HashMap<>();
+                response.put("message", "Login successful");
+                response.put("userId", user.getId()); // Assuming `getId()` returns the user ID
+                return new ResponseEntity<>(user.getId().toString(), HttpStatus.OK);
+                    //return LoyaltyUtils.getResponseEntity("Login successful", HttpStatus.OK);
                 } else {
                     return LoyaltyUtils.getResponseEntity("Invalid email or password", HttpStatus.UNAUTHORIZED);
                 }
@@ -82,7 +87,25 @@ public class UserServiceImpl implements UserService {
         user.setContactNumber(requestMap.get("contactNumber"));
         user.setEmail(requestMap.get("email"));
         user.setPassword(requestMap.get("password"));
+        user.setCurrentPoints(0);
         return user;
+    }
+
+
+    @Override
+    public User getUserByEmail(String email) {
+        return userDao.findByEmailId(email);
+    }
+
+
+    @Override
+    public void updateUserPoints(int userId, int points) {
+        User user = userDao.findById(userId);
+        if (user.getCurrentPoints() >= points) {
+            user.setCurrentPoints(user.getCurrentPoints() - points); //decrement the points if user purchases any item
+        }
+        
+        userDao.save(user);
     }
 
 }

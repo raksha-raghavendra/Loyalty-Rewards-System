@@ -1,12 +1,19 @@
-<div>
-  <h3>REWARDS CATALOG</h3>
-  <h2>Choose from the list of rewards to redeem your earned points!</h2>
-  <mat-list>
-    <mat-list-item *ngFor="let reward of rewards | slice:0:15">
-      <h4 mat-line>{{ reward.name }}</h4>
-      <p mat-line class="description">{{ reward.description }}</p>
-      <p mat-line>{{ reward.pointValue }}</p>
-      <button mat-raised-button color="primary" (click)="purchaseReward(reward)">Purchase</button>
-    </mat-list-item>
-  </mat-list>
+<h1>REWARDS CATALOG</h1>
+<h2>Choose from the list of rewards to redeem your earned points!</h2>
+<div class="image-container"><img mat-card-image src="assets/images/coupon.png">
+  <img mat-card-image src="assets/images/giftcard.png">
+  <img mat-card-image src="assets/images/new item.jpg"></div>
+<div class="reward-redeem-options">
+  <mat-card *ngFor="let reward of rewards | slice:0:15">
+    <mat-card-header>
+      <mat-card-title>{{ reward.name }}</mat-card-title>
+      <mat-card-subtitle>{{ reward.pointValue }} PTS</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{ reward.description }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button (click)="purchaseReward(reward)">Purchase</button>
+    </mat-card-actions>
+  </mat-card>
 </div>
