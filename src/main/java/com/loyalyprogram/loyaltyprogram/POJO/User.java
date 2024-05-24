@@ -1,23 +1,15 @@
 package com.loyalyprogram.loyaltyprogram.POJO;
 
+import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.List;
-
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
-
-import jakarta.persistence.*;
 import lombok.Data;
 
 @NamedQuery(name="User.findByEmailId", query = "select u from User u where u.email=:email")
-@NamedQuery(name="User.findById", query = "select u from User u where u.id=:id")
-
 @Data
 @Entity
-@DynamicInsert
-@DynamicUpdate
 @Table(name = "user")
-public class User implements Serializable{
+public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -28,7 +20,7 @@ public class User implements Serializable{
 
     @Column(name = "name")
     private String name;
-    
+
     @Column(name = "contactNumber")
     private String contactNumber;
 
@@ -38,18 +30,18 @@ public class User implements Serializable{
     @Column(name = "password")
     private String password;
 
-    @Column(name = "currentPoints")
-    private int currentPoints; 
+    @Column(name = "current_points")
+    private int currentPoints;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<RewardPurchase> purchases;
+    private List<Purchase> purchases;
 
-    public List<RewardPurchase> getPurchases() {
-        return purchases;
+    public void addPoints(int points) {
+        this.currentPoints += points;
     }
 
-    public void setPurchases(List<RewardPurchase> purchases) {
-        this.purchases = purchases;
+    public void addPurchase(Purchase purchase) {
+        this.purchases.add(purchase);
+        purchase.setUser(this);
     }
-
 }
