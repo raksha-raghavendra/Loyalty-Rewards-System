@@ -98,19 +98,18 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void updateUserPoints(int userId, int points) {
-        Optional<User> userOptional = userDao.findById(userId);
-        if (userOptional.isPresent()) {
-            User user = userOptional.get();
-            if (user.getCurrentPoints() >= points) {
-                user.setCurrentPoints(user.getCurrentPoints() - points); // decrement the points if the user purchases
-                                                                         // any item
-                userDao.save(user);
-            } else {
-                throw new RuntimeException("Not enough points to complete the transaction");
-            }
-        } else {
-            throw new RuntimeException("User not found");
+        Optional<User> optionalUser = userDao.findById(userId);
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            user.setCurrentPoints(user.getCurrentPoints() + points);
+            userDao.save(user);
         }
+    }
+
+    @Override
+    public User getUserById(int id) {
+        Optional<User> optionalUser = userDao.findById(id);
+        return optionalUser.orElseThrow(() -> new RuntimeException("User not found"));
     }
 
 }

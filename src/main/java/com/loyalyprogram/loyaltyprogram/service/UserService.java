@@ -13,5 +13,6 @@ public interface UserService {
     
     User getUserByEmail(String email);
     void updateUserPoints(int userId, int points);
+    User getUserById(int id);
 
 }
