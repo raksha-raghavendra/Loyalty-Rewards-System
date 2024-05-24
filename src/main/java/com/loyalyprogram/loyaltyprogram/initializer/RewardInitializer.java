@@ -3,18 +3,13 @@ package com.loyalyprogram.loyaltyprogram.initializer;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import com.loyalyprogram.loyaltyprogram.service.RewardService;
 import com.loyalyprogram.loyaltyprogram.POJO.Reward;
 
 @Component
 public class RewardInitializer implements CommandLineRunner {
-
-    @Autowired
-    private RewardService rewardService;
 
     @Override
     public void run(String... args) throws Exception {

@@ -13,8 +13,8 @@ public class LoginResponse {
         return message;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setMessage(String object) {
+        this.message = object;
     }
 
     public List<Reward> getRewards() {
