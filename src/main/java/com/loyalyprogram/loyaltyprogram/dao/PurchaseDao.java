@@ -1,9 +1,11 @@
 package com.loyalyprogram.loyaltyprogram.dao;
 
-import com.loyalyprogram.loyaltyprogram.POJO.Purchase;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
 
-@Repository
+import com.loyalyprogram.loyaltyprogram.POJO.Purchase;
+
 public interface PurchaseDao extends CrudRepository<Purchase, Integer> {
+    @Query("SELECT SUM(p.pointsEarned) FROM Purchase p WHERE p.user.id = :userId")
+    Integer findTotalPointsByUserId(int userId);
 }

@@ -1,7 +1,9 @@
 com/loyalyprogram/loyaltyprogram/initializer/LoginResponse.class
+com/loyalyprogram/loyaltyprogram/restImpl/ReportRestImpl.class
 com/loyalyprogram/loyaltyprogram/constants/LoyaltyConstants.class
 com/loyalyprogram/loyaltyprogram/rest/PurchaseRest.class
 com/loyalyprogram/loyaltyprogram/service/UserService.class
+com/loyalyprogram/loyaltyprogram/service/ReportService.class
 com/loyalyprogram/loyaltyprogram/initializer/RewardInitializer.class
 com/loyalyprogram/loyaltyprogram/restImpl/UserRestImpl.class
 com/loyalyprogram/loyaltyprogram/dao/UserDao.class
@@ -14,8 +16,10 @@ com/loyalyprogram/loyaltyprogram/POJO/Reward.class
 com/loyalyprogram/loyaltyprogram/dao/RewardsDao.class
 com/loyalyprogram/loyaltyprogram/service/PurchaseService.class
 com/loyalyprogram/loyaltyprogram/POJO/RewardPurchase.class
+com/loyalyprogram/loyaltyprogram/serviceImpl/ReportServiceImpl.class
 com/loyalyprogram/loyaltyprogram/service/RewardService.class
 com/loyalyprogram/loyaltyprogram/dao/RewardPurchaseDao.class
+com/loyalyprogram/loyaltyprogram/rest/ReportRest.class
 com/loyalyprogram/loyaltyprogram/serviceImpl/RewardPurchaseServiceImpl.class
 com/loyalyprogram/loyaltyprogram/dao/PurchaseRepository.class
 com/loyalyprogram/loyaltyprogram/initializer/RewardPurchaseRequest.class
