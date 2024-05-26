@@ -1,14 +1,17 @@
 /Users/raksharaghavendra/Desktop/Loyalty-Rewards-System/src/main/java/com/loyalyprogram/loyaltyprogram/initializer/LoginResponse.java
 /Users/raksharaghavendra/Desktop/Loyalty-Rewards-System/src/main/java/com/loyalyprogram/loyaltyprogram/dao/PurchaseDao.java
 /Users/raksharaghavendra/Desktop/Loyalty-Rewards-System/src/main/java/com/loyalyprogram/loyaltyprogram/dao/RewardsDao.java
+/Users/raksharaghavendra/Desktop/Loyalty-Rewards-System/src/main/java/com/loyalyprogram/loyaltyprogram/rest/ReportRest.java
 /Users/raksharaghavendra/Desktop/Loyalty-Rewards-System/src/main/java/com/loyalyprogram/loyaltyprogram/dao/RewardPurchaseDao.java
 /Users/raksharaghavendra/Desktop/Loyalty-Rewards-System/src/main/java/com/loyalyprogram/loyaltyprogram/POJO/RewardPurchase.java
 /Users/raksharaghavendra/Desktop/Loyalty-Rewards-System/src/main/java/com/loyalyprogram/loyaltyprogram/serviceImpl/PurchaseServiceImpl.java
 /Users/raksharaghavendra/Desktop/Loyalty-Rewards-System/src/main/java/com/loyalyprogram/loyaltyprogram/config/WebConfig.java
 /Users/raksharaghavendra/Desktop/Loyalty-Rewards-System/src/main/java/com/loyalyprogram/loyaltyprogram/restImpl/RewardRestImpl.java
 /Users/raksharaghavendra/Desktop/Loyalty-Rewards-System/src/main/java/com/loyalyprogram/loyaltyprogram/service/PurchaseService.java
+/Users/raksharaghavendra/Desktop/Loyalty-Rewards-System/src/main/java/com/loyalyprogram/loyaltyprogram/serviceImpl/ReportServiceImpl.java
 /Users/raksharaghavendra/Desktop/Loyalty-Rewards-System/src/main/java/com/loyalyprogram/loyaltyprogram/serviceImpl/UserServiceImpl.java
 /Users/raksharaghavendra/Desktop/Loyalty-Rewards-System/src/main/java/com/loyalyprogram/Exception/ResourceNotFoundException.java
+/Users/raksharaghavendra/Desktop/Loyalty-Rewards-System/src/main/java/com/loyalyprogram/loyaltyprogram/restImpl/ReportRestImpl.java
 /Users/raksharaghavendra/Desktop/Loyalty-Rewards-System/src/main/java/com/loyalyprogram/loyaltyprogram/initializer/RewardPurchaseRequest.java
 /Users/raksharaghavendra/Desktop/Loyalty-Rewards-System/src/main/java/com/loyalyprogram/loyaltyprogram/serviceImpl/RewardServiceImpl.java
 /Users/raksharaghavendra/Desktop/Loyalty-Rewards-System/src/main/java/com/loyalyprogram/loyaltyprogram/rest/RewardRest.java
@@ -28,5 +31,6 @@
 /Users/raksharaghavendra/Desktop/Loyalty-Rewards-System/src/main/java/com/loyalyprogram/loyaltyprogram/POJO/Purchase.java
 /Users/raksharaghavendra/Desktop/Loyalty-Rewards-System/src/main/java/com/loyalyprogram/loyaltyprogram/dao/UserDao.java
 /Users/raksharaghavendra/Desktop/Loyalty-Rewards-System/src/main/java/com/loyalyprogram/loyaltyprogram/service/RewardPurchaseService.java
+/Users/raksharaghavendra/Desktop/Loyalty-Rewards-System/src/main/java/com/loyalyprogram/loyaltyprogram/service/ReportService.java
 /Users/raksharaghavendra/Desktop/Loyalty-Rewards-System/src/main/java/com/loyalyprogram/loyaltyprogram/service/RewardService.java
 /Users/raksharaghavendra/Desktop/Loyalty-Rewards-System/src/main/java/com/loyalyprogram/loyaltyprogram/utils/LoyaltyUtils.java
