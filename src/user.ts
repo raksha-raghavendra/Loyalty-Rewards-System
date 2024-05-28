@@ -4,5 +4,5 @@ export class User{
     password: string;
     contactNumber: string;
     name: string;
-    current_points: number;
+    currentPoints: number;
 }

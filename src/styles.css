@@ -1,4 +1,8 @@
 /* styles.css */
+app-root {
+ width: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -67,3 +71,4 @@ button.mat-raised-button {
 button.mat-raised-button:hover {
   background-color: #7d0e0e; 
 } 
+

@@ -45,5 +45,7 @@ export class UserService {
   getUserReport(userId: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/report/${userId}`);
   }
+
+  
   
 }

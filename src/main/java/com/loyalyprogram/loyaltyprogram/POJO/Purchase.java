@@ -1,11 +1,13 @@
 package com.loyalyprogram.loyaltyprogram.POJO;
 
+
 import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
 @Entity
 @Table(name = "purchase")
+
 public class Purchase {
 
     @Id
@@ -14,6 +16,7 @@ public class Purchase {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
+   
     private User user;
 
     @Column(name = "item_name")
