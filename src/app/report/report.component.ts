@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-report',
@@ -10,7 +11,7 @@ export class ReportComponent implements OnInit {
   currentPoints: number | undefined;
   totalPointsRedeemed: number | undefined;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService,private router: Router) {}
 
   ngOnInit(): void {
     this.fetchReport();
@@ -22,10 +23,15 @@ export class ReportComponent implements OnInit {
       next: (data) => {
         this.currentPoints = data.currentPoints;
         this.totalPointsRedeemed = data.totalPointsRedeemed;
+        localStorage.setItem('points', this.currentPoints+'');
       },
       error: (error) => {
         console.error('Error fetching report:', error);
       }
     });
+  }
+
+  redirectToCatalog(): void {
+    this.router.navigate(['/rewards']);
   }
 }

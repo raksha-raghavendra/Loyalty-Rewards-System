@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { User } from 'src/user';
 import { PurchaseService } from '../services/purchase.service';
 import { UserService } from '../user.service';
 
@@ -10,6 +11,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./purchase.component.css']
 })
 export class PurchaseComponent implements OnInit {
+  currentUser: User | undefined;
   items = [
     {
       name: 'Wireless Headphones',
@@ -133,11 +135,28 @@ export class PurchaseComponent implements OnInit {
     this.purchaseService.createPurchase(purchaseData).subscribe(
       response => {
         alert(`Purchase successful! You earned ${item.pointsEarned} points.\nPlease visit the Rewards Catalog to redeem it.`);
+        this.userService.getUserDetails(userId).subscribe({
+          next: (user: User) => {
+            this.currentUser = user;
+            localStorage.setItem('points', user.currentPoints + '');
+          },
+          error: (error) => {
+            console.error('Error fetching user details', error);
+          }
+        });
       },
       error => {
         console.error('Purchase failed:', error);
         alert('Purchase failed: ' + error.error.message);
       }
+
     );
-  }
-}
+
+    this.userService.getUserDetails(userId).subscribe({
+      next: (user: User) => {
+        this.currentUser = user;  // Store user details for display
+        //this.currentPoints = this.currentUser.currentPoints;
+    localStorage.setItem('points', user.currentPoints+'');
+    }
+});
+}}

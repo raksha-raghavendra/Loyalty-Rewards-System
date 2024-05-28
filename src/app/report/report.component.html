@@ -1,14 +1,16 @@
 <div class="container">
   <div class="header">
-    <img src="path-to-logo.png" alt="Reward Program Logo" class="logo">
+    <img src="assets/logo.png" alt="Reward Program Logo" class="logo">
     <h1>Loyalty Rewards Application</h1>
   </div>
   <div class="content">
-    <h2><img src="path-to-icon.png" alt="Reward Icon" class="icon"> Summary of Your Reward Points</h2>
+    <h2><img src="assets/logo.png" alt="Reward Icon" class="icon"> Summary of Your Reward Points</h2>
     <div class="report-card">
-      <h3>User Report</h3>
+      <h3>congratulations</h3>
+      <p><span>Total points earned:</span> {{ currentPoints + totalPointsRedeemed }}</p>
       <p><span>Points Available To Redeem:</span> {{ currentPoints }}</p>
       <p><span>Total Points Redeemed:</span> {{ totalPointsRedeemed }}</p>
     </div>
+    <button class="redeem-btn" (click)="redirectToCatalog()">Redeem your points today!</button>
   </div>
 </div>

@@ -66,3 +66,12 @@
     color: #333;
   }
   
+  .redeem-btn {
+    background-color: #af4c4c !important;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 25px;
+  }

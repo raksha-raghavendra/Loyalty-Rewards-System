@@ -1,5 +1,19 @@
-<div class="header">
-  <img src="assets/logo.png" alt="Logo" class="logo" />
-  <span class="title">LOYALTY REWARDS APPLICATION</span>
+
+<div class="header" [class.after-login]="isLoggedIn">
+  <div class="left-header" [class.aligned-left]="isLoggedIn">
+    <img src="assets/logo.png" alt="Logo" class="logo" />
+    <span class="title">LOYALTY REWARDS APPLICATION</span>
+  </div>
+  <mat-card class="header-card right-header" *ngIf="isLoggedIn">
+    <div class="header-links">
+      <a routerLink="/home">Account</a>
+      <a routerLink="/rewards">Redeem</a>
+      <a routerLink="/purchase">Shop</a>
+      <a routerLink="/report">Report</a>
+      <a href="#" (click)="logout()">Logout</a>
+    </div>
+  </mat-card>
 </div>
-<router-outlet></router-outlet>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

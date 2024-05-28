@@ -1,5 +1,6 @@
 package com.loyalyprogram.loyaltyprogram.POJO;
 
+
 import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -9,6 +10,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "user")
+
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -34,6 +36,7 @@ public class User implements Serializable {
     private int currentPoints;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+
     private List<Purchase> purchases;
 
     public void addPoints(int points) {
